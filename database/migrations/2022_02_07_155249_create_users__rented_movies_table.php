@@ -13,7 +13,7 @@ class CreateUsersRentedMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users__rented_movies', function (Blueprint $table) {
+        Schema::create('users_rentedMovies', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('status');
             $table->timestamp('create_at');
@@ -27,6 +27,6 @@ class CreateUsersRentedMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users__rented_movies');
+        Schema::dropIfExists('users_rentedMovies');
     }
 }
