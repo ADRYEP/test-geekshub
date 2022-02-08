@@ -2,16 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
-class User extends Model
+class Movies extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -19,29 +14,20 @@ class User extends Model
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
-        'id_roles'
+        'desc',
+        'price',
+        'rented'
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password'
-    ];
-
     /**
      * The table associated with the model
      * 
      */
-    protected $table = 'users';
+    protected $table = 'movies';
 
     /**
      * The primary key associated with the table.
      *
      */
     protected $primaryKey = 'id';
+
 }
