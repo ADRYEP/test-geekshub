@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Users_RentedMovies;
 
 class Movies extends Model
 {
@@ -30,4 +31,11 @@ class Movies extends Model
      */
     protected $primaryKey = 'id';
 
+    /**
+     * Relation with Users_RentedMovies (Pivotal table)
+     * Many users can have many movies
+     */
+    public function users_rentedMovies(){
+        return $this->hasMany(Users_RentedMovies::class);
+    }
 }

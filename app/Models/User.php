@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\User_Roles;
+use App\Models\Users_RentedMovies;
 
 class User extends Model
 {
@@ -44,4 +46,21 @@ class User extends Model
      *
      */
     protected $primaryKey = 'id';
+
+    /**
+     * Relation with user_roles
+     * Many users can have one rol
+     */
+    public function user_roles(){
+        return $this->hasOne(User_Roles::class);
+    }
+
+    /**
+     * Relation with Users_RentedMovies (Pivotal table)
+     * Many users can have many movies
+     */
+    public function users_rentedMovies(){
+        return $this->hasMany(Users_RentedMovies::class);
+    }
+
 }

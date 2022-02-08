@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class User_Roles extends Model
 {
@@ -28,4 +29,8 @@ class User_Roles extends Model
      *
      */
     protected $primaryKey = 'id';
+    
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }
