@@ -14,7 +14,10 @@ class MoviesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'desc' => 'this is a description',
+            'price' => 10,
+            'rented' => 0
         ];
     }
 }
